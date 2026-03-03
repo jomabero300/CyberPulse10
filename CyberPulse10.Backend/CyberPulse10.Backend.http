@@ -1,0 +1,6 @@
+@CyberPulse10.Backend_HostAddress = http://localhost:5072
+
+GET {{CyberPulse10.Backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
