@@ -1,0 +1,16 @@
+﻿using CyberPulse10.Backend.Repositories.Interfaces.Gene;
+using CyberPulse10.Backend.UnitsOfWork.Interfaces.Gene;
+using CyberPulse10.Shared.Entities.Gene;
+
+namespace CyberPulse10.Backend.UnitsOfWork.Implementations.Gene;
+
+public class NeighborhoodUnitOfWork : GenericUnitOfWork<Neighborhood>, INeighborhoodUnitOfWork
+{
+    private readonly INeighborhoodRepository _neighborhood;
+    public NeighborhoodUnitOfWork(IGenericRepository<Neighborhood> repository, INeighborhoodRepository neighborhood) : base(repository)
+    {
+        _neighborhood = neighborhood;
+    }
+
+    public async Task<IEnumerable<Neighborhood>> GetComboAsync(int id) => await _neighborhood.GetComboAsync(id);
+}

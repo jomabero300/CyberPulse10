@@ -1,0 +1,34 @@
+﻿<NavigationLock OnBeforeInternalNavigation="OnBeforeInternalNavigation" />
+
+<EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
+
+	<DataAnnotationsValidator />
+	<MudGrid Style="margin-bottom:2em">
+		<MudItem xs="12">
+			<MudTextField Label="@Localizer["Name"]"
+						  @bind-Value="@StatuDTO.Name"
+						  For="@(() => StatuDTO.Name)"
+						  class="mb-3" />
+		</MudItem>
+		<MudItem xs="12">
+			<MudTextField Label="@Localizer["Level"]"
+						  @bind-Value="@StatuDTO.Level"
+						  For="@(() => StatuDTO.Level)"
+						  class="mb-3" />
+		</MudItem>
+	</MudGrid>
+
+	<MudButton Variant="Variant.Outlined"
+			   StartIcon="@Icons.Material.Filled.ArrowBack"
+			   Color="Color.Error"
+			   OnClick="ReturnAction">
+		@Localizer["Return"]
+	</MudButton>
+
+	<MudButton Variant="Variant.Outlined"
+			   StartIcon="@Icons.Material.Filled.Check"
+			   Color="Color.Primary"
+			   ButtonType="ButtonType.Submit">
+		@Localizer["SaveChanges"]
+	</MudButton>
+</EditForm>
